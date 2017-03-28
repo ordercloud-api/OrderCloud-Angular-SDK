@@ -1,0 +1,25 @@
+{
+  "name": "ordercloud-angular-sdk",
+  "version": "1.0.0",
+  "description": "Wrapper for OrderCloud-Javascript-SDK",
+  "main": "dist/ordercloud-angular-sdk.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cobrien451/OrderCloud-Angular-SDK.git"
+  },
+  "keywords": [
+    "SDK",
+    "OrderCloud",
+    "Angular",
+    "API"
+  ],
+  "author": "Four51",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cobrien451/OrderCloud-Angular-SDK/issues"
+  },
+  "homepage": "https://github.com/cobrien451/OrderCloud-Angular-SDK#readme"
+}

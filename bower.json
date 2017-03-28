@@ -1,0 +1,23 @@
+{
+  "name": "ordercloud-angular-sdk",
+  "description": "Wrapper for OrderCloud-Javascript-SDK",
+  "main": "dist/ordercloud-angular-sdk.js",
+  "authors": [
+    "Four51"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "SDK",
+    "OrderCloud",
+    "Angular",
+    "API"
+  ],
+  "homepage": "https://github.com/cobrien451/OrderCloud-Angular-SDK",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
