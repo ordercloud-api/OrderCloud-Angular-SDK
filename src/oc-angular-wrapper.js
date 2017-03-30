@@ -1,1 +1,0 @@
-require('ordercloud-javascript-sdk');

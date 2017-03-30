@@ -1,10 +1,12 @@
 {
   "name": "ordercloud-angular-sdk",
-  "version": "1.0.0",
+  "version": "1.0.42-preview",
   "description": "Wrapper for OrderCloud-Javascript-SDK",
-  "main": "dist/ordercloud-angular-sdk.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "test"
+    "build": "npm run concat && npm run minify",
+    "concat": "browserify ./src/index.js --outfile ./dist/ordercloud-angular-sdk.js",
+    "minify": "uglifyjs --compress unused=false --mangle --output dist/ordercloud-angular-sdk.min.js -- dist/ordercloud-angular-sdk.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/cobrien451/OrderCloud-Angular-SDK/issues"
   },
-  "homepage": "https://github.com/cobrien451/OrderCloud-Angular-SDK#readme"
+  "homepage": "https://github.com/cobrien451/OrderCloud-Angular-SDK#readme",
+  "dependencies": {
+    "angular": "1.6.3",
+    "ordercloud-javascript-sdk": "1.0.42-preview"
+  },
+  "devDependencies": {
+    "browserify": "14.1.0",
+    "uglifyjs": "2.8.18"
+  }
 }
