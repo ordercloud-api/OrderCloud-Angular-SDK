@@ -1,12 +1,12 @@
 var ocSDK = require('ordercloud-javascript-sdk');
 
 angular.module('ordercloud-angular-sdk', [])
-    .factory('sdkOrderCloud', OrderCloudService)
+    .factory('OrderCloudSDK', OrderCloudService)
 ;
 
 function OrderCloudService($cookies, $rootScope, $q) {
     var sdk = {},
-        cookieAppName, impersonationTokenCookieName, refreshTokenCookieName,
+        authTokenCookieName, impersonationTokenCookieName, refreshTokenCookieName,
         defaultClient = ocSDK.ApiClient.instance,
         oauth2 = defaultClient.authentications['oauth2'];
     
@@ -29,17 +29,18 @@ function OrderCloudService($cookies, $rootScope, $q) {
         }
     }
 
-    var _config = function(appname, apiurl, authurl) {
-        cookieAppName = appname.replace(/ /g, '_').toLowerCase();
-        authTokenCookieName = cookieAppName + '.token';
-        impersonationTokenCookieName = cookieAppName + '.impersonation.token';
-        refreshTokenCookieName = cookieAppName + '.refresh.token';
+    var _config = function(cookiePrefix, apiurl, authurl) {
+        authTokenCookieName = cookiePrefix + '.token';
+        impersonationTokenCookieName = cookiePrefix + '.impersonation.token';
+        refreshTokenCookieName = cookiePrefix + '.refresh.token';
         if (apiurl !== null) {
             ocSDK.ApiClient.instance.baseApiPath = apiurl;
         }
         if (authurl !== null) {
             ocSDK.ApiClient.instance.baseAuthPath = authurl;
         }
+        _getToken();
+        _getImpersonationToken();
     }
 
     var _getToken = function() {
