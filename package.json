@@ -1,6 +1,6 @@
 {
   "name": "ordercloud-angular-sdk",
-  "version": "1.0.42-preview",
+  "version": "1.0.43",
   "description": "Wrapper for OrderCloud-Javascript-SDK",
   "main": "src/index.js",
   "scripts": {
@@ -18,18 +18,18 @@
     "Angular",
     "API"
   ],
-  "author": "Four51",
+  "author": "Connor O'Brien",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cobrien451/OrderCloud-Angular-SDK/issues"
   },
   "homepage": "https://github.com/cobrien451/OrderCloud-Angular-SDK#readme",
   "dependencies": {
-    "angular": "1.6.3",
-    "ordercloud-javascript-sdk": "1.0.42-preview"
+    "angular": "*",
+    "ordercloud-javascript-sdk": "1.0.43"
   },
   "devDependencies": {
     "browserify": "14.1.0",
-    "uglifyjs": "2.8.18"
+    "uglify-js": "2.8.18"
   }
 }

@@ -2109,7 +2109,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
   /**
    * @module ApiClient
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -2583,6 +2583,8 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
    * @returns An instance of the specified type.
    */
   exports.convertToType = function(data, type) {
+    if (data === null)
+      return null;
     switch (type) {
       case 'Boolean':
         return Boolean(data);
@@ -2591,15 +2593,9 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
       case 'Number':
         return parseFloat(data);
       case 'String':
-        if (data !== null) {
-          return String(data);
-        }
-        else return null;
+        return String(data);
       case 'Date':
-        if (data !== null) {
-          return this.parseDate(String(data));
-        }
-        else return null;
+        return this.parseDate(String(data));
       default:
         if (type === Object) {
           // generic object, return directly
@@ -2702,7 +2698,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * Address service.
    * @module api/Addresses
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -3175,7 +3171,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * AdminAddress service.
    * @module api/AdminAddresses
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -3461,7 +3457,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * AdminUserGroup service.
    * @module api/AdminUserGroups
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -3864,7 +3860,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * AdminUser service.
    * @module api/AdminUsers
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -4150,7 +4146,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * ApprovalRule service.
    * @module api/ApprovalRules
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -4724,7 +4720,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * Buyer service.
    * @module api/Buyers
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -5010,7 +5006,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * Catalog service.
    * @module api/Catalogs
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -5405,20 +5401,20 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
     if (!root.OrderCloud) {
       root.OrderCloud = {};
     }
-    root.OrderCloud.Categorys = factory(root.OrderCloud.ApiClient, root.OrderCloud.Category, root.OrderCloud.CategoryAssignment, root.OrderCloud.CategoryProductAssignment, root.OrderCloud.ListCategory, root.OrderCloud.ListCategoryAssignment, root.OrderCloud.ListCategoryProductAssignment);
+    root.OrderCloud.Categories = factory(root.OrderCloud.ApiClient, root.OrderCloud.Category, root.OrderCloud.CategoryAssignment, root.OrderCloud.CategoryProductAssignment, root.OrderCloud.ListCategory, root.OrderCloud.ListCategoryAssignment, root.OrderCloud.ListCategoryProductAssignment);
   }
 }(this, function(ApiClient, Category, CategoryAssignment, CategoryProductAssignment, ListCategory, ListCategoryAssignment, ListCategoryProductAssignment) {
   'use strict';
 
   /**
    * Category service.
-   * @module api/Categorys
-   * @version v1.0.42-preview
+   * @module api/Categories
+   * @version 1.0.43
    */
 
   /**
-   * Constructs a new Categorys. 
-   * @alias module:api/Categorys
+   * Constructs a new Categories. 
+   * @alias module:api/Categories
    * @class
    * @param {module:ApiClient} apiClient Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -6031,7 +6027,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * CostCenter service.
    * @module api/CostCenters
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -6500,7 +6496,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * CreditCard service.
    * @module api/CreditCards
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -6969,7 +6965,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * LineItem service.
    * @module api/LineItems
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -7451,7 +7447,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * Me service.
    * @module api/Me
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -8667,7 +8663,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * MessageSenders service.
    * @module api/MessageSenders
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -9000,7 +8996,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * Order service.
    * @module api/Orders
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -10115,7 +10111,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * PasswordReset service.
    * @module api/PasswordResets
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -10244,7 +10240,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * Payment service.
    * @module api/Payments
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -10853,7 +10849,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * PriceSchedule service.
    * @module api/PriceSchedules
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -11224,7 +11220,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * Product service.
    * @module api/Products
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -12137,7 +12133,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * Promotion service.
    * @module api/Promotions
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -12552,7 +12548,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * SecurityProfile service.
    * @module api/SecurityProfiles
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -12807,7 +12803,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * Shipment service.
    * @module api/Shipments
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -13243,7 +13239,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * Spec service.
    * @module api/Specs
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -13922,7 +13918,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * SpendingAccount service.
    * @module api/SpendingAccounts
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -14391,7 +14387,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * UserGroup service.
    * @module api/UserGroups
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -14857,7 +14853,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * User service.
    * @module api/Users
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -15219,12 +15215,12 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AccessToken', 'model/Address', 'model/AddressAssignment', 'model/AdminCompany', 'model/ApprovalRule', 'model/BaseSpec', 'model/Buyer', 'model/BuyerAddress', 'model/BuyerCreditCard', 'model/BuyerProduct', 'model/BuyerSpec', 'model/Catalog', 'model/CatalogAssignment', 'model/Category', 'model/CategoryAssignment', 'model/CategoryProductAssignment', 'model/CostCenter', 'model/CostCenterAssignment', 'model/CreditCard', 'model/CreditCardAssignment', 'model/ImpersonateTokenRequest', 'model/Inventory', 'model/LineItem', 'model/LineItemProduct', 'model/LineItemSpec', 'model/ListAddress', 'model/ListAddressAssignment', 'model/ListAdminCompany', 'model/ListApprovalRule', 'model/ListBuyer', 'model/ListBuyerAddress', 'model/ListBuyerCreditCard', 'model/ListBuyerProduct', 'model/ListBuyerSpec', 'model/ListCatalog', 'model/ListCatalogAssignment', 'model/ListCategory', 'model/ListCategoryAssignment', 'model/ListCategoryProductAssignment', 'model/ListCostCenter', 'model/ListCostCenterAssignment', 'model/ListCreditCard', 'model/ListCreditCardAssignment', 'model/ListInventory', 'model/ListLineItem', 'model/ListMessageCCListenerAssignment', 'model/ListMessageSender', 'model/ListMessageSenderAssignment', 'model/ListOrder', 'model/ListOrderApproval', 'model/ListOrderPromotion', 'model/ListPayment', 'model/ListPriceSchedule', 'model/ListProduct', 'model/ListProductAssignment', 'model/ListPromotion', 'model/ListPromotionAssignment', 'model/ListSecurityProfile', 'model/ListSecurityProfileAssignment', 'model/ListShipment', 'model/ListSpec', 'model/ListSpecOption', 'model/ListSpecProductAssignment', 'model/ListSpendingAccount', 'model/ListSpendingAccountAssignment', 'model/ListUser', 'model/ListUserGroup', 'model/ListUserGroupAssignment', 'model/ListVariant', 'model/ListXpIndex', 'model/MessageCCListenerAssignment', 'model/MessageSender', 'model/MessageSenderAssignment', 'model/Meta', 'model/Order', 'model/OrderApproval', 'model/OrderPromotion', 'model/PasswordReset', 'model/PasswordResetRequest', 'model/Payment', 'model/PaymentTransaction', 'model/PingResponse', 'model/PriceBreak', 'model/PriceSchedule', 'model/Product', 'model/ProductAssignment', 'model/Promotion', 'model/PromotionAssignment', 'model/SecurityProfile', 'model/SecurityProfileAssignment', 'model/Shipment', 'model/ShipmentItem', 'model/Spec', 'model/SpecOption', 'model/SpecProductAssignment', 'model/SpendingAccount', 'model/SpendingAccountAssignment', 'model/StripeCreditCard', 'model/User', 'model/UserGroup', 'model/UserGroupAssignment', 'model/Variant', 'model/XpIndex', 'api/Addresses', 'api/AdminAddresses', 'api/AdminUsers', 'api/AdminUserGroups', 'api/ApprovalRules', 'api/Buyers', 'api/Catalogs', 'api/Categorys', 'api/CostCenters', 'api/CreditCards', 'api/LineItems', 'api/Me', 'api/MessageSenders', 'api/Orders', 'api/PasswordResets', 'api/Payments', 'api/PriceSchedules', 'api/Products', 'api/Promotions', 'api/SecurityProfiles', 'api/Shipments', 'api/Specs', 'api/SpendingAccounts', 'api/Users', 'api/UserGroups', 'api/Auth'], factory);
+    define(['ApiClient', 'model/AccessToken', 'model/Address', 'model/AddressAssignment', 'model/AdminCompany', 'model/ApprovalRule', 'model/BaseSpec', 'model/Buyer', 'model/BuyerAddress', 'model/BuyerCreditCard', 'model/BuyerProduct', 'model/BuyerSpec', 'model/Catalog', 'model/CatalogAssignment', 'model/Category', 'model/CategoryAssignment', 'model/CategoryProductAssignment', 'model/CostCenter', 'model/CostCenterAssignment', 'model/CreditCard', 'model/CreditCardAssignment', 'model/ImpersonateTokenRequest', 'model/Inventory', 'model/LineItem', 'model/LineItemProduct', 'model/LineItemSpec', 'model/ListAddress', 'model/ListAddressAssignment', 'model/ListAdminCompany', 'model/ListApprovalRule', 'model/ListBuyer', 'model/ListBuyerAddress', 'model/ListBuyerCreditCard', 'model/ListBuyerProduct', 'model/ListBuyerSpec', 'model/ListCatalog', 'model/ListCatalogAssignment', 'model/ListCategory', 'model/ListCategoryAssignment', 'model/ListCategoryProductAssignment', 'model/ListCostCenter', 'model/ListCostCenterAssignment', 'model/ListCreditCard', 'model/ListCreditCardAssignment', 'model/ListInventory', 'model/ListLineItem', 'model/ListMessageCCListenerAssignment', 'model/ListMessageSender', 'model/ListMessageSenderAssignment', 'model/ListOrder', 'model/ListOrderApproval', 'model/ListOrderPromotion', 'model/ListPayment', 'model/ListPriceSchedule', 'model/ListProduct', 'model/ListProductAssignment', 'model/ListPromotion', 'model/ListPromotionAssignment', 'model/ListSecurityProfile', 'model/ListSecurityProfileAssignment', 'model/ListShipment', 'model/ListSpec', 'model/ListSpecOption', 'model/ListSpecProductAssignment', 'model/ListSpendingAccount', 'model/ListSpendingAccountAssignment', 'model/ListUser', 'model/ListUserGroup', 'model/ListUserGroupAssignment', 'model/ListVariant', 'model/ListXpIndex', 'model/MessageCCListenerAssignment', 'model/MessageSender', 'model/MessageSenderAssignment', 'model/Meta', 'model/Order', 'model/OrderApproval', 'model/OrderPromotion', 'model/PasswordReset', 'model/PasswordResetRequest', 'model/Payment', 'model/PaymentTransaction', 'model/PingResponse', 'model/PriceBreak', 'model/PriceSchedule', 'model/Product', 'model/ProductAssignment', 'model/Promotion', 'model/PromotionAssignment', 'model/SecurityProfile', 'model/SecurityProfileAssignment', 'model/Shipment', 'model/ShipmentItem', 'model/Spec', 'model/SpecOption', 'model/SpecProductAssignment', 'model/SpendingAccount', 'model/SpendingAccountAssignment', 'model/StripeCreditCard', 'model/User', 'model/UserGroup', 'model/UserGroupAssignment', 'model/Variant', 'model/XpIndex', 'api/Addresses', 'api/AdminAddresses', 'api/AdminUsers', 'api/AdminUserGroups', 'api/ApprovalRules', 'api/Buyers', 'api/Catalogs', 'api/Categories', 'api/CostCenters', 'api/CreditCards', 'api/LineItems', 'api/Me', 'api/MessageSenders', 'api/Orders', 'api/PasswordResets', 'api/Payments', 'api/PriceSchedules', 'api/Products', 'api/Promotions', 'api/SecurityProfiles', 'api/Shipments', 'api/Specs', 'api/SpendingAccounts', 'api/Users', 'api/UserGroups', 'api/Auth'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/AccessToken'), require('./model/Address'), require('./model/AddressAssignment'), require('./model/AdminCompany'), require('./model/ApprovalRule'), require('./model/BaseSpec'), require('./model/Buyer'), require('./model/BuyerAddress'), require('./model/BuyerCreditCard'), require('./model/BuyerProduct'), require('./model/BuyerSpec'), require('./model/Catalog'), require('./model/CatalogAssignment'), require('./model/Category'), require('./model/CategoryAssignment'), require('./model/CategoryProductAssignment'), require('./model/CostCenter'), require('./model/CostCenterAssignment'), require('./model/CreditCard'), require('./model/CreditCardAssignment'), require('./model/ImpersonateTokenRequest'), require('./model/Inventory'), require('./model/LineItem'), require('./model/LineItemProduct'), require('./model/LineItemSpec'), require('./model/ListAddress'), require('./model/ListAddressAssignment'), require('./model/ListAdminCompany'), require('./model/ListApprovalRule'), require('./model/ListBuyer'), require('./model/ListBuyerAddress'), require('./model/ListBuyerCreditCard'), require('./model/ListBuyerProduct'), require('./model/ListBuyerSpec'), require('./model/ListCatalog'), require('./model/ListCatalogAssignment'), require('./model/ListCategory'), require('./model/ListCategoryAssignment'), require('./model/ListCategoryProductAssignment'), require('./model/ListCostCenter'), require('./model/ListCostCenterAssignment'), require('./model/ListCreditCard'), require('./model/ListCreditCardAssignment'), require('./model/ListInventory'), require('./model/ListLineItem'), require('./model/ListMessageCCListenerAssignment'), require('./model/ListMessageSender'), require('./model/ListMessageSenderAssignment'), require('./model/ListOrder'), require('./model/ListOrderApproval'), require('./model/ListOrderPromotion'), require('./model/ListPayment'), require('./model/ListPriceSchedule'), require('./model/ListProduct'), require('./model/ListProductAssignment'), require('./model/ListPromotion'), require('./model/ListPromotionAssignment'), require('./model/ListSecurityProfile'), require('./model/ListSecurityProfileAssignment'), require('./model/ListShipment'), require('./model/ListSpec'), require('./model/ListSpecOption'), require('./model/ListSpecProductAssignment'), require('./model/ListSpendingAccount'), require('./model/ListSpendingAccountAssignment'), require('./model/ListUser'), require('./model/ListUserGroup'), require('./model/ListUserGroupAssignment'), require('./model/ListVariant'), require('./model/ListXpIndex'), require('./model/MessageCCListenerAssignment'), require('./model/MessageSender'), require('./model/MessageSenderAssignment'), require('./model/Meta'), require('./model/Order'), require('./model/OrderApproval'), require('./model/OrderPromotion'), require('./model/PasswordReset'), require('./model/PasswordResetRequest'), require('./model/Payment'), require('./model/PaymentTransaction'), require('./model/PingResponse'), require('./model/PriceBreak'), require('./model/PriceSchedule'), require('./model/Product'), require('./model/ProductAssignment'), require('./model/Promotion'), require('./model/PromotionAssignment'), require('./model/SecurityProfile'), require('./model/SecurityProfileAssignment'), require('./model/Shipment'), require('./model/ShipmentItem'), require('./model/Spec'), require('./model/SpecOption'), require('./model/SpecProductAssignment'), require('./model/SpendingAccount'), require('./model/SpendingAccountAssignment'), require('./model/StripeCreditCard'), require('./model/User'), require('./model/UserGroup'), require('./model/UserGroupAssignment'), require('./model/Variant'), require('./model/XpIndex'), require('./api/Addresses'), require('./api/AdminAddresses'), require('./api/AdminUsers'), require('./api/AdminUserGroups'), require('./api/ApprovalRules'), require('./api/Buyers'), require('./api/Catalogs'), require('./api/Categorys'), require('./api/CostCenters'), require('./api/CreditCards'), require('./api/LineItems'), require('./api/Me'), require('./api/MessageSenders'), require('./api/Orders'), require('./api/PasswordResets'), require('./api/Payments'), require('./api/PriceSchedules'), require('./api/Products'), require('./api/Promotions'), require('./api/SecurityProfiles'), require('./api/Shipments'), require('./api/Specs'), require('./api/SpendingAccounts'), require('./api/Users'), require('./api/UserGroups'), require('./api/Auth'));
+    module.exports = factory(require('./ApiClient'), require('./model/AccessToken'), require('./model/Address'), require('./model/AddressAssignment'), require('./model/AdminCompany'), require('./model/ApprovalRule'), require('./model/BaseSpec'), require('./model/Buyer'), require('./model/BuyerAddress'), require('./model/BuyerCreditCard'), require('./model/BuyerProduct'), require('./model/BuyerSpec'), require('./model/Catalog'), require('./model/CatalogAssignment'), require('./model/Category'), require('./model/CategoryAssignment'), require('./model/CategoryProductAssignment'), require('./model/CostCenter'), require('./model/CostCenterAssignment'), require('./model/CreditCard'), require('./model/CreditCardAssignment'), require('./model/ImpersonateTokenRequest'), require('./model/Inventory'), require('./model/LineItem'), require('./model/LineItemProduct'), require('./model/LineItemSpec'), require('./model/ListAddress'), require('./model/ListAddressAssignment'), require('./model/ListAdminCompany'), require('./model/ListApprovalRule'), require('./model/ListBuyer'), require('./model/ListBuyerAddress'), require('./model/ListBuyerCreditCard'), require('./model/ListBuyerProduct'), require('./model/ListBuyerSpec'), require('./model/ListCatalog'), require('./model/ListCatalogAssignment'), require('./model/ListCategory'), require('./model/ListCategoryAssignment'), require('./model/ListCategoryProductAssignment'), require('./model/ListCostCenter'), require('./model/ListCostCenterAssignment'), require('./model/ListCreditCard'), require('./model/ListCreditCardAssignment'), require('./model/ListInventory'), require('./model/ListLineItem'), require('./model/ListMessageCCListenerAssignment'), require('./model/ListMessageSender'), require('./model/ListMessageSenderAssignment'), require('./model/ListOrder'), require('./model/ListOrderApproval'), require('./model/ListOrderPromotion'), require('./model/ListPayment'), require('./model/ListPriceSchedule'), require('./model/ListProduct'), require('./model/ListProductAssignment'), require('./model/ListPromotion'), require('./model/ListPromotionAssignment'), require('./model/ListSecurityProfile'), require('./model/ListSecurityProfileAssignment'), require('./model/ListShipment'), require('./model/ListSpec'), require('./model/ListSpecOption'), require('./model/ListSpecProductAssignment'), require('./model/ListSpendingAccount'), require('./model/ListSpendingAccountAssignment'), require('./model/ListUser'), require('./model/ListUserGroup'), require('./model/ListUserGroupAssignment'), require('./model/ListVariant'), require('./model/ListXpIndex'), require('./model/MessageCCListenerAssignment'), require('./model/MessageSender'), require('./model/MessageSenderAssignment'), require('./model/Meta'), require('./model/Order'), require('./model/OrderApproval'), require('./model/OrderPromotion'), require('./model/PasswordReset'), require('./model/PasswordResetRequest'), require('./model/Payment'), require('./model/PaymentTransaction'), require('./model/PingResponse'), require('./model/PriceBreak'), require('./model/PriceSchedule'), require('./model/Product'), require('./model/ProductAssignment'), require('./model/Promotion'), require('./model/PromotionAssignment'), require('./model/SecurityProfile'), require('./model/SecurityProfileAssignment'), require('./model/Shipment'), require('./model/ShipmentItem'), require('./model/Spec'), require('./model/SpecOption'), require('./model/SpecProductAssignment'), require('./model/SpendingAccount'), require('./model/SpendingAccountAssignment'), require('./model/StripeCreditCard'), require('./model/User'), require('./model/UserGroup'), require('./model/UserGroupAssignment'), require('./model/Variant'), require('./model/XpIndex'), require('./api/Addresses'), require('./api/AdminAddresses'), require('./api/AdminUsers'), require('./api/AdminUserGroups'), require('./api/ApprovalRules'), require('./api/Buyers'), require('./api/Catalogs'), require('./api/Categories'), require('./api/CostCenters'), require('./api/CreditCards'), require('./api/LineItems'), require('./api/Me'), require('./api/MessageSenders'), require('./api/Orders'), require('./api/PasswordResets'), require('./api/Payments'), require('./api/PriceSchedules'), require('./api/Products'), require('./api/Promotions'), require('./api/SecurityProfiles'), require('./api/Shipments'), require('./api/Specs'), require('./api/SpendingAccounts'), require('./api/Users'), require('./api/UserGroups'), require('./api/Auth'));
   }
-}(function(ApiClient, AccessToken, Address, AddressAssignment, AdminCompany, ApprovalRule, BaseSpec, Buyer, BuyerAddress, BuyerCreditCard, BuyerProduct, BuyerSpec, Catalog, CatalogAssignment, Category, CategoryAssignment, CategoryProductAssignment, CostCenter, CostCenterAssignment, CreditCard, CreditCardAssignment, ImpersonateTokenRequest, Inventory, LineItem, LineItemProduct, LineItemSpec, ListAddress, ListAddressAssignment, ListAdminCompany, ListApprovalRule, ListBuyer, ListBuyerAddress, ListBuyerCreditCard, ListBuyerProduct, ListBuyerSpec, ListCatalog, ListCatalogAssignment, ListCategory, ListCategoryAssignment, ListCategoryProductAssignment, ListCostCenter, ListCostCenterAssignment, ListCreditCard, ListCreditCardAssignment, ListInventory, ListLineItem, ListMessageCCListenerAssignment, ListMessageSender, ListMessageSenderAssignment, ListOrder, ListOrderApproval, ListOrderPromotion, ListPayment, ListPriceSchedule, ListProduct, ListProductAssignment, ListPromotion, ListPromotionAssignment, ListSecurityProfile, ListSecurityProfileAssignment, ListShipment, ListSpec, ListSpecOption, ListSpecProductAssignment, ListSpendingAccount, ListSpendingAccountAssignment, ListUser, ListUserGroup, ListUserGroupAssignment, ListVariant, ListXpIndex, MessageCCListenerAssignment, MessageSender, MessageSenderAssignment, Meta, Order, OrderApproval, OrderPromotion, PasswordReset, PasswordResetRequest, Payment, PaymentTransaction, PingResponse, PriceBreak, PriceSchedule, Product, ProductAssignment, Promotion, PromotionAssignment, SecurityProfile, SecurityProfileAssignment, Shipment, ShipmentItem, Spec, SpecOption, SpecProductAssignment, SpendingAccount, SpendingAccountAssignment, StripeCreditCard, User, UserGroup, UserGroupAssignment, Variant, XpIndex, Addresses, AdminAddresses, AdminUsers, AdminUserGroups, ApprovalRules, Buyers, Catalogs, Categorys, CostCenters, CreditCards, LineItems, Me, MessageSenders, Orders, PasswordResets, Payments, PriceSchedules, Products, Promotions, SecurityProfiles, Shipments, Specs, SpendingAccounts, Users, UserGroups, Auth) {
+}(function(ApiClient, AccessToken, Address, AddressAssignment, AdminCompany, ApprovalRule, BaseSpec, Buyer, BuyerAddress, BuyerCreditCard, BuyerProduct, BuyerSpec, Catalog, CatalogAssignment, Category, CategoryAssignment, CategoryProductAssignment, CostCenter, CostCenterAssignment, CreditCard, CreditCardAssignment, ImpersonateTokenRequest, Inventory, LineItem, LineItemProduct, LineItemSpec, ListAddress, ListAddressAssignment, ListAdminCompany, ListApprovalRule, ListBuyer, ListBuyerAddress, ListBuyerCreditCard, ListBuyerProduct, ListBuyerSpec, ListCatalog, ListCatalogAssignment, ListCategory, ListCategoryAssignment, ListCategoryProductAssignment, ListCostCenter, ListCostCenterAssignment, ListCreditCard, ListCreditCardAssignment, ListInventory, ListLineItem, ListMessageCCListenerAssignment, ListMessageSender, ListMessageSenderAssignment, ListOrder, ListOrderApproval, ListOrderPromotion, ListPayment, ListPriceSchedule, ListProduct, ListProductAssignment, ListPromotion, ListPromotionAssignment, ListSecurityProfile, ListSecurityProfileAssignment, ListShipment, ListSpec, ListSpecOption, ListSpecProductAssignment, ListSpendingAccount, ListSpendingAccountAssignment, ListUser, ListUserGroup, ListUserGroupAssignment, ListVariant, ListXpIndex, MessageCCListenerAssignment, MessageSender, MessageSenderAssignment, Meta, Order, OrderApproval, OrderPromotion, PasswordReset, PasswordResetRequest, Payment, PaymentTransaction, PingResponse, PriceBreak, PriceSchedule, Product, ProductAssignment, Promotion, PromotionAssignment, SecurityProfile, SecurityProfileAssignment, Shipment, ShipmentItem, Spec, SpecOption, SpecProductAssignment, SpendingAccount, SpendingAccountAssignment, StripeCreditCard, User, UserGroup, UserGroupAssignment, Variant, XpIndex, Addresses, AdminAddresses, AdminUsers, AdminUserGroups, ApprovalRules, Buyers, Catalogs, Categories, CostCenters, CreditCards, LineItems, Me, MessageSenders, Orders, PasswordResets, Payments, PriceSchedules, Products, Promotions, SecurityProfiles, Shipments, Specs, SpendingAccounts, Users, UserGroups, Auth) {
   'use strict';
 
   /**
@@ -15256,7 +15252,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
    * </pre>
    * </p>
    * @module index
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
   var exports = {
     /**
@@ -15828,10 +15824,10 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
      */
     Catalogs: new Catalogs(),
     /**
-     * The Categorys service.
-     * @property {module:api/Categorys}
+     * The Categories service.
+     * @property {module:api/Categories}
      */
-    Categorys: new Categorys(),
+    Categories: new Categories(),
     /**
      * The CostCenters service.
      * @property {module:api/CostCenters}
@@ -15922,7 +15918,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   return exports;
 }));
 
-},{"./ApiClient":6,"./api/Addresses":7,"./api/AdminAddresses":8,"./api/AdminUserGroups":9,"./api/AdminUsers":10,"./api/ApprovalRules":11,"./api/Auth":12,"./api/Buyers":13,"./api/Catalogs":14,"./api/Categorys":15,"./api/CostCenters":16,"./api/CreditCards":17,"./api/LineItems":18,"./api/Me":19,"./api/MessageSenders":20,"./api/Orders":21,"./api/PasswordResets":22,"./api/Payments":23,"./api/PriceSchedules":24,"./api/Products":25,"./api/Promotions":26,"./api/SecurityProfiles":27,"./api/Shipments":28,"./api/Specs":29,"./api/SpendingAccounts":30,"./api/UserGroups":31,"./api/Users":32,"./model/AccessToken":34,"./model/Address":35,"./model/AddressAssignment":36,"./model/AdminCompany":37,"./model/ApprovalRule":38,"./model/BaseSpec":39,"./model/Buyer":40,"./model/BuyerAddress":41,"./model/BuyerCreditCard":42,"./model/BuyerProduct":43,"./model/BuyerSpec":44,"./model/Catalog":45,"./model/CatalogAssignment":46,"./model/Category":47,"./model/CategoryAssignment":48,"./model/CategoryProductAssignment":49,"./model/CostCenter":50,"./model/CostCenterAssignment":51,"./model/CreditCard":52,"./model/CreditCardAssignment":53,"./model/ImpersonateTokenRequest":54,"./model/Inventory":55,"./model/LineItem":56,"./model/LineItemProduct":57,"./model/LineItemSpec":58,"./model/ListAddress":59,"./model/ListAddressAssignment":60,"./model/ListAdminCompany":61,"./model/ListApprovalRule":62,"./model/ListBuyer":63,"./model/ListBuyerAddress":64,"./model/ListBuyerCreditCard":65,"./model/ListBuyerProduct":66,"./model/ListBuyerSpec":67,"./model/ListCatalog":68,"./model/ListCatalogAssignment":69,"./model/ListCategory":70,"./model/ListCategoryAssignment":71,"./model/ListCategoryProductAssignment":72,"./model/ListCostCenter":73,"./model/ListCostCenterAssignment":74,"./model/ListCreditCard":75,"./model/ListCreditCardAssignment":76,"./model/ListInventory":77,"./model/ListLineItem":78,"./model/ListMessageCCListenerAssignment":79,"./model/ListMessageSender":80,"./model/ListMessageSenderAssignment":81,"./model/ListOrder":82,"./model/ListOrderApproval":83,"./model/ListOrderPromotion":84,"./model/ListPayment":85,"./model/ListPriceSchedule":86,"./model/ListProduct":87,"./model/ListProductAssignment":88,"./model/ListPromotion":89,"./model/ListPromotionAssignment":90,"./model/ListSecurityProfile":91,"./model/ListSecurityProfileAssignment":92,"./model/ListShipment":93,"./model/ListSpec":94,"./model/ListSpecOption":95,"./model/ListSpecProductAssignment":96,"./model/ListSpendingAccount":97,"./model/ListSpendingAccountAssignment":98,"./model/ListUser":99,"./model/ListUserGroup":100,"./model/ListUserGroupAssignment":101,"./model/ListVariant":102,"./model/ListXpIndex":103,"./model/MessageCCListenerAssignment":104,"./model/MessageSender":105,"./model/MessageSenderAssignment":106,"./model/Meta":107,"./model/Order":108,"./model/OrderApproval":109,"./model/OrderPromotion":110,"./model/PasswordReset":111,"./model/PasswordResetRequest":112,"./model/Payment":113,"./model/PaymentTransaction":114,"./model/PingResponse":115,"./model/PriceBreak":116,"./model/PriceSchedule":117,"./model/Product":118,"./model/ProductAssignment":119,"./model/Promotion":120,"./model/PromotionAssignment":121,"./model/SecurityProfile":122,"./model/SecurityProfileAssignment":123,"./model/Shipment":124,"./model/ShipmentItem":125,"./model/Spec":126,"./model/SpecOption":127,"./model/SpecProductAssignment":128,"./model/SpendingAccount":129,"./model/SpendingAccountAssignment":130,"./model/StripeCreditCard":131,"./model/User":132,"./model/UserGroup":133,"./model/UserGroupAssignment":134,"./model/Variant":135,"./model/XpIndex":136}],34:[function(require,module,exports){
+},{"./ApiClient":6,"./api/Addresses":7,"./api/AdminAddresses":8,"./api/AdminUserGroups":9,"./api/AdminUsers":10,"./api/ApprovalRules":11,"./api/Auth":12,"./api/Buyers":13,"./api/Catalogs":14,"./api/Categories":15,"./api/CostCenters":16,"./api/CreditCards":17,"./api/LineItems":18,"./api/Me":19,"./api/MessageSenders":20,"./api/Orders":21,"./api/PasswordResets":22,"./api/Payments":23,"./api/PriceSchedules":24,"./api/Products":25,"./api/Promotions":26,"./api/SecurityProfiles":27,"./api/Shipments":28,"./api/Specs":29,"./api/SpendingAccounts":30,"./api/UserGroups":31,"./api/Users":32,"./model/AccessToken":34,"./model/Address":35,"./model/AddressAssignment":36,"./model/AdminCompany":37,"./model/ApprovalRule":38,"./model/BaseSpec":39,"./model/Buyer":40,"./model/BuyerAddress":41,"./model/BuyerCreditCard":42,"./model/BuyerProduct":43,"./model/BuyerSpec":44,"./model/Catalog":45,"./model/CatalogAssignment":46,"./model/Category":47,"./model/CategoryAssignment":48,"./model/CategoryProductAssignment":49,"./model/CostCenter":50,"./model/CostCenterAssignment":51,"./model/CreditCard":52,"./model/CreditCardAssignment":53,"./model/ImpersonateTokenRequest":54,"./model/Inventory":55,"./model/LineItem":56,"./model/LineItemProduct":57,"./model/LineItemSpec":58,"./model/ListAddress":59,"./model/ListAddressAssignment":60,"./model/ListAdminCompany":61,"./model/ListApprovalRule":62,"./model/ListBuyer":63,"./model/ListBuyerAddress":64,"./model/ListBuyerCreditCard":65,"./model/ListBuyerProduct":66,"./model/ListBuyerSpec":67,"./model/ListCatalog":68,"./model/ListCatalogAssignment":69,"./model/ListCategory":70,"./model/ListCategoryAssignment":71,"./model/ListCategoryProductAssignment":72,"./model/ListCostCenter":73,"./model/ListCostCenterAssignment":74,"./model/ListCreditCard":75,"./model/ListCreditCardAssignment":76,"./model/ListInventory":77,"./model/ListLineItem":78,"./model/ListMessageCCListenerAssignment":79,"./model/ListMessageSender":80,"./model/ListMessageSenderAssignment":81,"./model/ListOrder":82,"./model/ListOrderApproval":83,"./model/ListOrderPromotion":84,"./model/ListPayment":85,"./model/ListPriceSchedule":86,"./model/ListProduct":87,"./model/ListProductAssignment":88,"./model/ListPromotion":89,"./model/ListPromotionAssignment":90,"./model/ListSecurityProfile":91,"./model/ListSecurityProfileAssignment":92,"./model/ListShipment":93,"./model/ListSpec":94,"./model/ListSpecOption":95,"./model/ListSpecProductAssignment":96,"./model/ListSpendingAccount":97,"./model/ListSpendingAccountAssignment":98,"./model/ListUser":99,"./model/ListUserGroup":100,"./model/ListUserGroupAssignment":101,"./model/ListVariant":102,"./model/ListXpIndex":103,"./model/MessageCCListenerAssignment":104,"./model/MessageSender":105,"./model/MessageSenderAssignment":106,"./model/Meta":107,"./model/Order":108,"./model/OrderApproval":109,"./model/OrderPromotion":110,"./model/PasswordReset":111,"./model/PasswordResetRequest":112,"./model/Payment":113,"./model/PaymentTransaction":114,"./model/PingResponse":115,"./model/PriceBreak":116,"./model/PriceSchedule":117,"./model/Product":118,"./model/ProductAssignment":119,"./model/Promotion":120,"./model/PromotionAssignment":121,"./model/SecurityProfile":122,"./model/SecurityProfileAssignment":123,"./model/Shipment":124,"./model/ShipmentItem":125,"./model/Spec":126,"./model/SpecOption":127,"./model/SpecProductAssignment":128,"./model/SpendingAccount":129,"./model/SpendingAccountAssignment":130,"./model/StripeCreditCard":131,"./model/User":132,"./model/UserGroup":133,"./model/UserGroupAssignment":134,"./model/Variant":135,"./model/XpIndex":136}],34:[function(require,module,exports){
 /**
  * OrderCloud
  * No description provided (generated by Swagger Codegen https://github.com/swagger-api/swagger-codegen)
@@ -15959,7 +15955,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The AccessToken model module.
    * @module model/AccessToken
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -16064,7 +16060,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The Address model module.
    * @module model/Address
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -16241,7 +16237,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The AddressAssignment model module.
    * @module model/AddressAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -16354,7 +16350,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The AdminCompany model module.
    * @module model/AdminCompany
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -16451,7 +16447,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ApprovalRule model module.
    * @module model/ApprovalRule
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -16572,7 +16568,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The BaseSpec model module.
    * @module model/BaseSpec
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -16717,7 +16713,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The Buyer model module.
    * @module model/Buyer
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -16830,7 +16826,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The BuyerAddress model module.
    * @module model/BuyerAddress
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -17031,7 +17027,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The BuyerCreditCard model module.
    * @module model/BuyerCreditCard
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -17176,7 +17172,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The BuyerProduct model module.
    * @module model/BuyerProduct
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -17417,7 +17413,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The BuyerSpec model module.
    * @module model/BuyerSpec
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -17570,7 +17566,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The Catalog model module.
    * @module model/Catalog
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -17683,7 +17679,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The CatalogAssignment model module.
    * @module model/CatalogAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -17772,7 +17768,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The Category model module.
    * @module model/Category
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -17909,7 +17905,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The CategoryAssignment model module.
    * @module model/CategoryAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -18014,7 +18010,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The CategoryProductAssignment model module.
    * @module model/CategoryProductAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -18111,7 +18107,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The CostCenter model module.
    * @module model/CostCenter
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -18216,7 +18212,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The CostCenterAssignment model module.
    * @module model/CostCenterAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -18313,7 +18309,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The CreditCard model module.
    * @module model/CreditCard
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -18450,7 +18446,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The CreditCardAssignment model module.
    * @module model/CreditCardAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -18547,7 +18543,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ImpersonateTokenRequest model module.
    * @module model/ImpersonateTokenRequest
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -18636,7 +18632,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The Inventory model module.
    * @module model/Inventory
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -18749,7 +18745,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The LineItem model module.
    * @module model/LineItem
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -18958,7 +18954,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The LineItemProduct model module.
    * @module model/LineItemProduct
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -19103,7 +19099,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The LineItemSpec model module.
    * @module model/LineItemSpec
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -19208,7 +19204,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListAddress model module.
    * @module model/ListAddress
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -19297,7 +19293,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListAddressAssignment model module.
    * @module model/ListAddressAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -19386,7 +19382,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListAdminCompany model module.
    * @module model/ListAdminCompany
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -19475,7 +19471,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListApprovalRule model module.
    * @module model/ListApprovalRule
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -19564,7 +19560,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListBuyer model module.
    * @module model/ListBuyer
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -19653,7 +19649,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListBuyerAddress model module.
    * @module model/ListBuyerAddress
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -19742,7 +19738,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListBuyerCreditCard model module.
    * @module model/ListBuyerCreditCard
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -19831,7 +19827,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListBuyerProduct model module.
    * @module model/ListBuyerProduct
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -19920,7 +19916,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListBuyerSpec model module.
    * @module model/ListBuyerSpec
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -20009,7 +20005,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListCatalog model module.
    * @module model/ListCatalog
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -20098,7 +20094,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListCatalogAssignment model module.
    * @module model/ListCatalogAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -20187,7 +20183,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListCategory model module.
    * @module model/ListCategory
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -20276,7 +20272,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListCategoryAssignment model module.
    * @module model/ListCategoryAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -20365,7 +20361,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListCategoryProductAssignment model module.
    * @module model/ListCategoryProductAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -20454,7 +20450,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListCostCenter model module.
    * @module model/ListCostCenter
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -20543,7 +20539,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListCostCenterAssignment model module.
    * @module model/ListCostCenterAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -20632,7 +20628,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListCreditCard model module.
    * @module model/ListCreditCard
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -20721,7 +20717,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListCreditCardAssignment model module.
    * @module model/ListCreditCardAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -20810,7 +20806,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListInventory model module.
    * @module model/ListInventory
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -20899,7 +20895,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListLineItem model module.
    * @module model/ListLineItem
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -20988,7 +20984,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListMessageCCListenerAssignment model module.
    * @module model/ListMessageCCListenerAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -21077,7 +21073,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListMessageSender model module.
    * @module model/ListMessageSender
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -21166,7 +21162,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListMessageSenderAssignment model module.
    * @module model/ListMessageSenderAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -21255,7 +21251,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListOrder model module.
    * @module model/ListOrder
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -21344,7 +21340,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListOrderApproval model module.
    * @module model/ListOrderApproval
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -21433,7 +21429,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListOrderPromotion model module.
    * @module model/ListOrderPromotion
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -21522,7 +21518,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListPayment model module.
    * @module model/ListPayment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -21611,7 +21607,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListPriceSchedule model module.
    * @module model/ListPriceSchedule
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -21700,7 +21696,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListProduct model module.
    * @module model/ListProduct
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -21789,7 +21785,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListProductAssignment model module.
    * @module model/ListProductAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -21878,7 +21874,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListPromotion model module.
    * @module model/ListPromotion
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -21967,7 +21963,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListPromotionAssignment model module.
    * @module model/ListPromotionAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -22056,7 +22052,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListSecurityProfile model module.
    * @module model/ListSecurityProfile
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -22145,7 +22141,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListSecurityProfileAssignment model module.
    * @module model/ListSecurityProfileAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -22234,7 +22230,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListShipment model module.
    * @module model/ListShipment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -22323,7 +22319,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListSpec model module.
    * @module model/ListSpec
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -22412,7 +22408,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListSpecOption model module.
    * @module model/ListSpecOption
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -22501,7 +22497,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListSpecProductAssignment model module.
    * @module model/ListSpecProductAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -22590,7 +22586,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListSpendingAccount model module.
    * @module model/ListSpendingAccount
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -22679,7 +22675,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListSpendingAccountAssignment model module.
    * @module model/ListSpendingAccountAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -22768,7 +22764,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListUser model module.
    * @module model/ListUser
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -22857,7 +22853,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListUserGroup model module.
    * @module model/ListUserGroup
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -22946,7 +22942,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListUserGroupAssignment model module.
    * @module model/ListUserGroupAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -23035,7 +23031,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListVariant model module.
    * @module model/ListVariant
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -23124,7 +23120,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ListXpIndex model module.
    * @module model/ListXpIndex
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -23213,7 +23209,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The MessageCCListenerAssignment model module.
    * @module model/MessageCCListenerAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -23334,7 +23330,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The MessageSender model module.
    * @module model/MessageSender
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -23431,7 +23427,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The MessageSenderAssignment model module.
    * @module model/MessageSenderAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -23544,7 +23540,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The Meta model module.
    * @module model/Meta
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -23657,7 +23653,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The Order model module.
    * @module model/Order
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -23930,7 +23926,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The OrderApproval model module.
    * @module model/OrderApproval
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -24075,7 +24071,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The OrderPromotion model module.
    * @module model/OrderPromotion
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -24268,7 +24264,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The PasswordReset model module.
    * @module model/PasswordReset
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -24365,7 +24361,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The PasswordResetRequest model module.
    * @module model/PasswordResetRequest
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -24470,7 +24466,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The Payment model module.
    * @module model/Payment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -24615,7 +24611,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The PaymentTransaction model module.
    * @module model/PaymentTransaction
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -24752,7 +24748,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The PingResponse model module.
    * @module model/PingResponse
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -24833,7 +24829,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The PriceBreak model module.
    * @module model/PriceBreak
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -24922,7 +24918,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The PriceSchedule model module.
    * @module model/PriceSchedule
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -25083,7 +25079,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The Product model module.
    * @module model/Product
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -25308,7 +25304,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ProductAssignment model module.
    * @module model/ProductAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -25429,7 +25425,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The Promotion model module.
    * @module model/Promotion
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -25614,7 +25610,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The PromotionAssignment model module.
    * @module model/PromotionAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -25719,7 +25715,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The SecurityProfile model module.
    * @module model/SecurityProfile
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -25824,7 +25820,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The SecurityProfileAssignment model module.
    * @module model/SecurityProfileAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -25929,7 +25925,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The Shipment model module.
    * @module model/Shipment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -26066,7 +26062,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The ShipmentItem model module.
    * @module model/ShipmentItem
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -26163,7 +26159,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The Spec model module.
    * @module model/Spec
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -26316,7 +26312,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The SpecOption model module.
    * @module model/SpecOption
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -26445,7 +26441,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The SpecProductAssignment model module.
    * @module model/SpecProductAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -26550,7 +26546,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The SpendingAccount model module.
    * @module model/SpendingAccount
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -26687,7 +26683,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The SpendingAccountAssignment model module.
    * @module model/SpendingAccountAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -26792,7 +26788,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The StripeCreditCard model module.
    * @module model/StripeCreditCard
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -26953,7 +26949,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The User model module.
    * @module model/User
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -27114,7 +27110,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The UserGroup model module.
    * @module model/UserGroup
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -27219,7 +27215,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The UserGroupAssignment model module.
    * @module model/UserGroupAssignment
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -27308,7 +27304,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The Variant model module.
    * @module model/Variant
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
@@ -27421,7 +27417,7 @@ exports.prototype.callAuth = function callApi(path, httpMethod, pathParams,
   /**
    * The XpIndex model module.
    * @module model/XpIndex
-   * @version v1.0.42-preview
+   * @version 1.0.43
    */
 
   /**
