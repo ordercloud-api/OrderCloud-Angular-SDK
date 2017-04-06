@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cobrien451/OrderCloud-Angular-SDK.git"
+    "url": "git+https://github.com/ordercloud-api/OrderCloud-Angular-SDK.git"
   },
   "keywords": [
     "SDK",
@@ -21,9 +21,9 @@
   "author": "Connor O'Brien",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cobrien451/OrderCloud-Angular-SDK/issues"
+    "url": "https://github.com/ordercloud-api/OrderCloud-Angular-SDK/issues"
   },
-  "homepage": "https://github.com/cobrien451/OrderCloud-Angular-SDK#readme",
+  "homepage": "https://github.com/ordercloud-api/OrderCloud-Angular-SDK#readme",
   "dependencies": {
     "angular": "*",
     "ordercloud-javascript-sdk": "1.0.43"

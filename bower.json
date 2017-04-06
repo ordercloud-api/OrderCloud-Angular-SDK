@@ -13,7 +13,7 @@
     "Angular",
     "API"
   ],
-  "homepage": "https://github.com/cobrien451/OrderCloud-Angular-SDK",
+  "homepage": "https://github.com/ordercloud-api/OrderCloud-Angular-SDK",
   "ignore": [
     "**/.*",
     "node_modules",
