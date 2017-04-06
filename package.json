@@ -26,6 +26,7 @@
   "homepage": "https://github.com/ordercloud-api/OrderCloud-Angular-SDK#readme",
   "dependencies": {
     "angular": "*",
+    "angular-cookies": "*",
     "ordercloud-javascript-sdk": "1.0.43"
   },
   "devDependencies": {
