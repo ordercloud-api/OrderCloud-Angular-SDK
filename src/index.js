@@ -12,18 +12,29 @@ function OrderCloudService($cookies, $rootScope, $q) {
     
     for(var method in ocSDK) {
         if (ocSDK.hasOwnProperty(method)) {
-            sdk[method] = {};
-            for (var apiCall in ocSDK[method]) {
-                if (ocSDK[method].hasOwnProperty(apiCall)) {
-                    sdk[method][apiCall] = (function() {
-                        var useMethod = method,
-                            useApiCall = apiCall;
-                        return function() {
-                            var dfd = $q.defer();
-                            dfd.resolve(ocSDK[useMethod][useApiCall].apply(ocSDK[useMethod], arguments));
-                            return dfd.promise;
-                        }
-                    })();
+            if (method === "As") {
+                sdk[method] = function(token) {
+                    if (token) {
+                        _setImpersonationToken(token);
+                    }
+                    defaultClient.impersonation = true;
+                    return sdk;
+                }
+            }
+            else {
+                sdk[method] = {};
+                for (var apiCall in ocSDK[method]) {
+                    if (ocSDK[method].hasOwnProperty(apiCall)) {
+                        sdk[method][apiCall] = (function() {
+                            var useMethod = method,
+                                useApiCall = apiCall;
+                            return function() {
+                                var dfd = $q.defer();
+                                dfd.resolve(ocSDK[useMethod][useApiCall].apply(ocSDK[useMethod], arguments));
+                                return dfd.promise;
+                            }
+                        })();
+                    }
                 }
             }
         }
