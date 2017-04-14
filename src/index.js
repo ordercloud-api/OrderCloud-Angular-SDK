@@ -60,11 +60,21 @@ function OrderCloudService($cookies, $rootScope, $q) {
         return token;
     };
 
+    var _removeToken = function() {
+        $cookies.remove(authTokenCookieName);
+        oauth2.accessToken = null;
+    };
+
     var _getImpersonationToken = function() {
         var token = $cookies.get(impersonationTokenCookieName);
         oauth2.impersonationToken = token;
         return token;
     };
+
+    var _removeImpersonationToken = function() {
+        $cookies.remove(impersonationTokenCookieName);
+        oauth2.impersonationToken = null;
+    }
 
     var _getRefreshToken = function() {
         var token = $cookies.get(refreshTokenCookieName);
@@ -87,7 +97,9 @@ function OrderCloudService($cookies, $rootScope, $q) {
 
     sdk.Config = _config;
     sdk.GetToken = _getToken;
+    sdk.RemoveToken = _removeToken;
     sdk.GetImpersonationToken = _getImpersonationToken;
+    sdk.RemoveImpersonationToken = _removeImpersonationToken;
     sdk.GetRefreshToken = _getRefreshToken;
     sdk.SetToken = _setToken;
     sdk.SetImpersonationToken = _setImpersonationToken;
