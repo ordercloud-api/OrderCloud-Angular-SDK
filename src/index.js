@@ -24,16 +24,30 @@ function OrderCloudService($cookies, $rootScope, $q) {
             else {
                 sdk[method] = {};
                 for (var apiCall in ocSDK[method]) {
-                    if (ocSDK[method].hasOwnProperty(apiCall)) {
-                        sdk[method][apiCall] = (function() {
-                            var useMethod = method,
-                                useApiCall = apiCall;
-                            return function() {
-                                var dfd = $q.defer();
-                                dfd.resolve(ocSDK[useMethod][useApiCall].apply(ocSDK[useMethod], arguments));
-                                return dfd.promise;
+                    if (ocSDK.hasOwnProperty(method)) {
+                        sdk[method] = {};
+                        for (var apiCall in ocSDK[method]) {
+                            if (ocSDK[method].hasOwnProperty(apiCall)) {
+                                sdk[method][apiCall] = (function() {
+                                    var useMethod = method,
+                                        useApiCall = apiCall;
+                                    return function() {
+                                        var dfd = $q.defer(),
+                                        response = ocSDK[useMethod][useApiCall].apply(ocSDK[useMethod], arguments);
+                                        response
+                                        .then(function(data) {
+                                            dfd.resolve(data);
+                                        })
+                                        .catch(function(ex) {
+                                            if (ex.status === 401) $rootScope.$broadcast('OC:InvalidOrExpiredAccessToken', ex);
+                                            if (ex.status === 403) $rootScope.$broadcast('OC:AccessForbidden', ex);
+                                            dfd.reject(ex);
+                                        });
+                                        return dfd.promise;
+                                    }
+                                })();
                             }
-                        })();
+                        }
                     }
                 }
             }
