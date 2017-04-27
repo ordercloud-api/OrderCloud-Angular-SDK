@@ -1,6 +1,8 @@
 var ocSDK = require('ordercloud-javascript-sdk');
 
-angular.module('ordercloud-angular-sdk', [])
+angular.module('ordercloud-angular-sdk', [
+    'ngCookies'
+])
     .factory('OrderCloudSDK', OrderCloudService)
 ;
 
