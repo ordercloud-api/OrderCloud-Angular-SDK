@@ -1,6 +1,6 @@
 {
   "name": "ordercloud-angular-sdk",
-  "version": "1.0.57",
+  "version": "1.0.58",
   "description": "Wrapper for OrderCloud-Javascript-SDK",
   "main": "src/index.js",
   "scripts": {
@@ -27,7 +27,7 @@
   "dependencies": {
     "angular": "*",
     "angular-cookies": "*",
-    "ordercloud-javascript-sdk": "1.0.57"
+    "ordercloud-javascript-sdk": "1.0.58"
   },
   "devDependencies": {
     "browserify": "14.1.0",
