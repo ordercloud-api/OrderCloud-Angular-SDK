@@ -1,36 +1,36 @@
 {
-  "name": "ordercloud-angular-sdk",
-  "version": "1.0.58",
-  "description": "Wrapper for OrderCloud-Javascript-SDK",
-  "main": "src/index.js",
-  "scripts": {
-    "build": "npm run concat && npm run minify",
-    "concat": "browserify ./src/index.js --outfile ./dist/ordercloud-angular-sdk.js",
-    "minify": "uglifyjs --compress unused=false --mangle --output dist/ordercloud-angular-sdk.min.js -- dist/ordercloud-angular-sdk.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ordercloud-api/OrderCloud-Angular-SDK.git"
-  },
-  "keywords": [
-    "SDK",
-    "OrderCloud",
-    "Angular",
-    "API"
-  ],
-  "author": "Connor O'Brien",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ordercloud-api/OrderCloud-Angular-SDK/issues"
-  },
-  "homepage": "https://github.com/ordercloud-api/OrderCloud-Angular-SDK#readme",
-  "dependencies": {
-    "angular": "*",
-    "angular-cookies": "*",
-    "ordercloud-javascript-sdk": "1.0.58"
-  },
-  "devDependencies": {
-    "browserify": "14.1.0",
-    "uglify-js": "2.8.18"
-  }
+    "name": "ordercloud-angular-sdk",
+    "version": "1.0.59",
+    "description": "Wrapper for OrderCloud-Javascript-SDK",
+    "main": "src/index.js",
+    "scripts": {
+        "build": "npm run concat && npm run minify",
+        "concat": "browserify ./src/index.js --outfile ./dist/ordercloud-angular-sdk.js",
+        "minify": "uglifyjs --compress unused=false --mangle --output dist/ordercloud-angular-sdk.min.js -- dist/ordercloud-angular-sdk.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ordercloud-api/OrderCloud-Angular-SDK.git"
+    },
+    "keywords": [
+        "SDK",
+        "OrderCloud",
+        "Angular",
+        "API"
+    ],
+    "author": "Connor O'Brien",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ordercloud-api/OrderCloud-Angular-SDK/issues"
+    },
+    "homepage": "https://github.com/ordercloud-api/OrderCloud-Angular-SDK#readme",
+    "dependencies": {
+        "angular": "*",
+        "angular-cookies": "*",
+        "ordercloud-javascript-sdk": "1.0.59"
+    },
+    "devDependencies": {
+        "browserify": "14.1.0",
+        "uglify-js": "2.8.18"
+    }
 }
