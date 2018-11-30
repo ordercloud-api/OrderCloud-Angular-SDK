@@ -9,7 +9,7 @@ angular.module('ordercloud-angular-sdk', [
 function OrderCloudService($cookies, $rootScope, $q) {
     var sdk = {},
         authTokenCookieName, impersonationTokenCookieName, refreshTokenCookieName,
-        defaultClient = ocSDK.ApiClient.instance,
+        defaultClient = ocSDK.Sdk.instance,
         oauth2 = defaultClient.authentications['oauth2'];
     
     for(var method in ocSDK) {
@@ -61,10 +61,10 @@ function OrderCloudService($cookies, $rootScope, $q) {
         impersonationTokenCookieName = cookiePrefix + '.impersonation.token';
         refreshTokenCookieName = cookiePrefix + '.refresh.token';
         if (apiurl !== null) {
-            ocSDK.ApiClient.instance.baseApiPath = apiurl;
+            ocSDK.Sdk.instance.baseApiPath = apiurl;
         }
         if (authurl !== null) {
-            ocSDK.ApiClient.instance.baseAuthPath = authurl;
+            ocSDK.Sdk.instance.baseAuthPath = authurl;
         }
         _getToken();
         _getImpersonationToken();
