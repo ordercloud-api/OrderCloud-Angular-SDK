@@ -2,7 +2,7 @@
     "name": "ordercloud-angular-sdk",
     "version": "2.3.6",
     "description": "Wrapper for OrderCloud-Javascript-SDK",
-    "main": "src/index.js",
+    "main": "dist/ordercloud-angular-sdk.js",
     "scripts": {
         "build": "npm run concat && npm run minify",
         "concat": "browserify ./src/index.js --outfile ./dist/ordercloud-angular-sdk.js",
