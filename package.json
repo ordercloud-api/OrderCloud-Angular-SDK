@@ -18,6 +18,10 @@
         "Angular",
         "API"
     ],
+    "files": [
+        "dist/",
+        "src/"
+    ],
     "author": "Connor O'Brien",
     "license": "MIT",
     "bugs": {
