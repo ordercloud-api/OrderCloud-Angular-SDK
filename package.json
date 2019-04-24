@@ -1,6 +1,6 @@
 {
     "name": "ordercloud-angular-sdk",
-    "version": "2.3.6",
+    "version": "2.3.7",
     "description": "Wrapper for OrderCloud-Javascript-SDK",
     "main": "dist/ordercloud-angular-sdk.js",
     "scripts": {
