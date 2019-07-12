@@ -4,9 +4,9 @@ This Angular 1.xx SDK is a wrapper for the [OrderCloud Javascript SDK](https://g
 
 ### Getting Started
 
-If you're new to ordercloud check out our [API documentation](https://documentation.ordercloud.io/home).
+If you're new to ordercloud check out our [documentation](https://developer.ordercloud.io/documentation).
 
-Additional SDK specific documentation can be found [here](https://documentation.ordercloud.io/frameworks-and-sdks)
+Additional SDK specific documentation can be found [here](https://developer.ordercloud.io/documentation/frameworks-and-sdks)
 
 ### Installation
 
@@ -19,7 +19,7 @@ bower install ordercloud-angular-sdk --save
 2. include the ordercloud-angular-sdk module as a dependency:
 
 ```javascript
-angular.module("YOUR_MODULE", ["ordercloud-javascript-sdk"])
+angular.module('YOUR_MODULE', ['ordercloud-angular-sdk'])
 ```
 
 ### Configuration
@@ -32,12 +32,12 @@ The SDK exposes `OrderCloudSDK.Config` to configure settings required to run. It
 We recommend setting these in a run block like so:
 
 ```javascript
-angular.module("YOUR_MODULE", ["ordercloud-javascript-sdk"])
+angular.module('YOUR_MODULE', ['ordercloud-javascript-sdk'])
     .run(function(OrderCloudSDK){
-        var cookiePrefix = "COOKIE_PREFIX_EXAMPLE"; // this can be any string - in the starter app we use the appname
-        var apiVersion = "v1"; //there is currently only one version of the API
-        var apiurl = "https://api.ordercloud.io"
-        var authurl = "https://auth.ordercloud.io"
+        var cookiePrefix = 'COOKIE_PREFIX_EXAMPLE'; // this can be any string - in the starter app we use the appname
+        var apiVersion = 'v1'; //there is currently only one version of the API
+        var apiurl = 'https://api.ordercloud.io'
+        var authurl = 'https://auth.ordercloud.io'
 
         OrderCloudSDK.Config(cookiePrefix, apiurl + '/' + apiVersion, authurl);
     })
@@ -72,25 +72,25 @@ The following example will show you how to:
 
 ```javascript
 
-var username = "user123";
-var password = "foobar"
-var clientid = "7FC87166-D42A-4F2D-9587-159D98156314" //you can find your app's client id in the [dashboard](https://dashboard.ordercloud.io/settings/options)
-var scope = ["FullAccess"]; //this is an array of roles (permissions) being requested. More info on roles [here](https://documentation.ordercloud.io/platform-guides/authentication/security-profiles)
+var username = 'user123';
+var password = 'foobar'
+var clientid = '7FC87166-D42A-4F2D-9587-159D98156314' //you can find your app's client id in the [dashboard](https://developer.ordercloud.io/dashboard/applications)
+var scope = ['FullAccess']; //this is an array of roles (permissions) being requested. More info on roles [here](https://developer.ordercloud.io/documentation/platform-guides/authentication/security-profiles)
 
 
 OrderCloudSDK.Auth.Login(username, password, clientid, scope)
     .then(function(response){
-        var token = response["access_token"];
+        var token = response['access_token'];
         OrderCloudSDK.SetToken(token); //this token is now stored in browser cookies and will be used on any subsequent API call
         OrderCloudSDK.Me.Get()
             .then(function(currentUser){
-                console.log("This user's name is " + currentUser.FirstName + " " + currentUser.LastName);
+                console.log('This user's name is ' + currentUser.FirstName + ' ' + currentUser.LastName);
             })
     })
 ```
 
 ### Additional Information
 
-Be sure to check out our [API documentation](https://documentation.ordercloud.io/home).
+Be sure to check out our [API documentation](https://developer.ordercloud.io/documentation).
 
-Additional SDK specific documentation can be found [here](https://documentation.ordercloud.io/frameworks-and-sdks)
+Additional SDK specific documentation can be found [here](https://developer.ordercloud.io/documentation/frameworks-and-sdks)
