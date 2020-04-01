@@ -31,7 +31,7 @@
     "dependencies": {
         "angular": "*",
         "angular-cookies": "*",
-        "ordercloud-javascript-sdk": "3.6.9"
+        "ordercloud-javascript-sdk": "3.7.9"
     },
     "devDependencies": {
         "browserify": "14.1.0",
