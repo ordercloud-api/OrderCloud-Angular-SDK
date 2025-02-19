@@ -1,3 +1,6 @@
+# DEPRECATED AND ARCHIVED!
+> The OrderCloud team is re-focusing efforts on improving the [OrderCloud Javascript SDK](https://github.com/ordercloud-api/ordercloud-javascript-sdk) and moving away from a framework-specific SDK approach for Angular implementations. Application developers are urged to migrate their production Angular applications to the OrderCloud Javascript SDK during their next phase of new development, as this repository and corresponding npm package [`ordercloud-angular-sdk`](https://www.npmjs.com/package/ordercloud-angular-sdk) will no longer be maintained with the latest [OrderCloud API releases](https://ordercloud.io/release-notes).
+
 # OrderCloud Angular 1.xx SDK
 
 This Angular 1.xx SDK is a wrapper for the [OrderCloud Javascript SDK](https://github.com/ordercloud-api/OrderCloud-JavaScript-SDK) which is auto-generated from our [Swagger Spec](https://raw.githubusercontent.com/ordercloud-api/swagger/master/ordercloud_swagger.json)
